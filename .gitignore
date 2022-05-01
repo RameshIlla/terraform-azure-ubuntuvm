@@ -2,6 +2,6 @@ azurevmkey
 azurevmkey.pub
 .terraform.lock.hcl
 terraform.tfstate
-terraform.tfstate.lock.info
 terraform.tfstate.backup
 .terraform/*
+.terraform.tfstate.lock.info
