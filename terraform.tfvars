@@ -1,2 +1,2 @@
 ssh-source-address=""
-location="Singapore"
+location="Southeast Asia"
