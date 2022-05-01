@@ -7,6 +7,11 @@ variable "prefix" {
   default = "ubuntuvm"
 }
 
+variable "vmuser" {
+  type    = string
+  default = "ubuntu_user"
+}
+
 variable "ssh-source-address" {
   type    = string
   default = "*"
