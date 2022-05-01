@@ -17,14 +17,14 @@ resource "azurerm_virtual_machine" "demo-instance" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "myosdisk1"
+    name              = "${var.prefix}-osdisk1"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "demo-instance"
-    admin_username = "ubuntu_user"
+    computer_name  = var.prefix
+    admin_username = var.vmuser
     #admin_password = "..."
   }
   os_profile_linux_config {
@@ -34,13 +34,13 @@ resource "azurerm_virtual_machine" "demo-instance" {
       #path     = "/home/demo/.ssh/authorized_keys"
       
       key_data = file("azurevmkey.pub")
-      path     = "/home/demo/.ssh/authorized_keys"
+      path     = "/home/${var.vmuser}/.ssh/authorized_keys"
     }
   }
 }
 
 resource "azurerm_network_interface" "demo-instance" {
-  name                      = "${var.prefix}-instance1"
+  name                      = "${var.prefix}-network-interface"
   location                  = var.location
   resource_group_name       = azurerm_resource_group.demo.name
 
@@ -58,7 +58,7 @@ resource "azurerm_network_interface_security_group_association" "allow-ssh" {
 }
 
 resource "azurerm_public_ip" "demo-instance" {
-    name                         = "instance1-public-ip"
+    name                         = "${var.prefix}-public-ip"
     location                     = var.location
     resource_group_name          = azurerm_resource_group.demo.name
     allocation_method            = "Dynamic"
