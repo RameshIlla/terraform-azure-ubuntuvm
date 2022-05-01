@@ -24,7 +24,7 @@ resource "azurerm_virtual_machine" "demo-instance" {
   }
   os_profile {
     computer_name  = "demo-instance"
-    admin_username = "demo"
+    admin_username = "ubuntu_user"
     #admin_password = "..."
   }
   os_profile_linux_config {

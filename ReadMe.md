@@ -6,4 +6,6 @@
 ### 4. Run *terraform init* in terminal
 ### 5. Run *terraform plan* in terminal and verify the resources to be created
 ### 6. Run *terraform apply* to create resources on Azure
-### 7. Run *terraform destroy* to delete to resources
+### 7. Copy the IP of the newly created VM from Azure portal and the below command to connect to the vm
+###    Run *ssh <IP Copied from portal> -i <ssh pub key name> -l ubuntu_user*
+### 8. Run *terraform destroy* to delete to resources

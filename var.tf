@@ -4,7 +4,7 @@ variable "location" {
 }
 variable "prefix" {
   type    = string
-  default = "demo"
+  default = "ubuntuvm"
 }
 
 variable "ssh-source-address" {
